@@ -6,7 +6,10 @@
 <title>ログイン</title>
 </head>
 <body>
-	<h2 class="heading">ログイン</h2>
+	<!-- <h2 class="heading">ログイン</h2>
+	<div th:if="${message} != null">
+      <span th:text="${message}"></span>
+    </div>
 	<form method="post" th:action="@{/login}">
 		<div th:if="${param.error}">
 			ログインに失敗しました
@@ -22,6 +25,17 @@
         <label for="password">パスワード</label>
         <input type="password" id="password" name="password"><br>
         <button type="submit">ログイン</button>
-	</form>
+	</form> -->
+	
+	
+	<h1>login</h1>
+    <div th:if="${message} != null">
+      <span th:text="${message}"></span>
+    </div>
+    <form th:action="@{/login}" method="post">
+      <p>ユーザー: <input type="text" name="username" th:value="${user}" /></p>
+      <p>パスワード: <input type="password" name="password" /></p>
+      <p><input type="submit" value="ログイン" /></p>
+    </form>
 </body>
 </html>
